@@ -1,204 +1,633 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Siddharth Salvi | Portfolio</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #0b1020;
-      color: #f4f7fb;
-      line-height: 1.6;
-    }
-    a { color: inherit; text-decoration: none; }
-    nav {
-      position: sticky; top: 0; z-index: 10;
-      background: rgba(11,16,32,.92);
-      border-bottom: 1px solid #26304a;
-      backdrop-filter: blur(10px);
-    }
-    .nav-inner {
-      max-width: 1100px; margin: auto; padding: 18px 24px;
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    .logo { font-size: 1.2rem; font-weight: 800; }
-    .logo span { color: #66e3c4; }
-    .links { display: flex; gap: 22px; list-style: none; flex-wrap: wrap; }
-    .links a { color: #cbd5e1; font-size: .95rem; }
-    .links a:hover { color: #66e3c4; }
-    section { max-width: 1100px; margin: auto; padding: 90px 24px; }
-    .hero {
-      min-height: 88vh; display: grid; place-items: center;
-      background: radial-gradient(circle at 80% 20%, #163b4a 0, transparent 35%);
-    }
-    .hero-grid { display: grid; grid-template-columns: 1.3fr .7fr; gap: 60px; align-items: center; }
-    .eyebrow { color: #66e3c4; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
-    h1 { font-size: clamp(3rem, 8vw, 5.8rem); line-height: 1; margin: 14px 0 20px; }
-    h1 span { color: #66e3c4; }
-    .hero p { max-width: 650px; color: #b9c4d5; font-size: 1.1rem; }
-    .buttons { display: flex; gap: 14px; margin-top: 28px; flex-wrap: wrap; }
-    .btn {
-      padding: 12px 20px; border-radius: 999px; font-weight: 700;
-      border: 1px solid #66e3c4; background: #66e3c4; color: #07100e;
-    }
-    .btn.alt { background: transparent; color: #f4f7fb; border-color: #3b4864; }
-    .photo {
-      width: 300px; height: 300px; border-radius: 50%; margin: auto;
-      border: 2px solid #66e3c4; display: grid; place-items: center;
-      background: linear-gradient(145deg, #18243c, #0e172a);
-      box-shadow: 0 0 70px rgba(102,227,196,.16);
-      color: #94a3b8; text-align: center; padding: 30px;
-    }
-    .section-title { font-size: 2.3rem; margin-bottom: 12px; }
-    .section-lead { color: #aeb9ca; margin-bottom: 35px; }
-    .about-grid { display: grid; grid-template-columns: .65fr 1.35fr; gap: 50px; align-items: center; }
-    .about-photo { width: 100%; min-height: 360px; border-radius: 24px; display: grid; place-items: center; background: #121b30; border: 1px solid #293754; color: #8190a8; text-align: center; padding: 30px; }
-    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .card {
-      background: #121a2d; border: 1px solid #293754; border-radius: 20px;
-      padding: 26px; transition: transform .2s, border-color .2s;
-    }
-    .card:hover { transform: translateY(-5px); border-color: #66e3c4; }
-    .card h3 { margin-bottom: 10px; color: #fff; }
-    .card p { color: #aeb9ca; }
-    .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
-    .tag { background: #1b2942; color: #bdeee3; padding: 5px 10px; border-radius: 999px; font-size: .82rem; }
-    .skills { display: flex; flex-wrap: wrap; gap: 12px; }
-    .skill { padding: 12px 18px; border: 1px solid #34425f; border-radius: 12px; background: #121a2d; }
-    .resume { text-align: center; background: linear-gradient(135deg, #102b2d, #111a30); border: 1px solid #293754; border-radius: 28px; }
-    .contact-box { display: grid; gap: 12px; }
-    .contact-box a { color: #66e3c4; word-break: break-word; }
-    footer { text-align: center; padding: 30px; color: #7f8ca3; border-top: 1px solid #26304a; }
-    @media (max-width: 800px) {
-      .hero-grid, .about-grid, .cards { grid-template-columns: 1fr; }
-      .hero { min-height: auto; padding-top: 60px; }
-      .photo { width: 230px; height: 230px; }
-      .links { gap: 10px; }
-      .nav-inner { align-items: flex-start; gap: 14px; flex-direction: column; }
-    }
-    .profile-img,
-.about-profile-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-.about-profile-img {
-  border-radius: 20px;
-}
+    <title>Siddharth Salvi | Portfolio</title>
 
-.about-photo {
-  overflow: hidden;
-  padding: 0;
-}
-  </style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #111827;
+            border-bottom: 1px solid #334155;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #2dd4bf;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: #e2e8f0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #2dd4bf;
+        }
+
+        /* General Section */
+        section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 90px 25px;
+        }
+
+        section h2 {
+            font-size: 36px;
+            color: #2dd4bf;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* Home */
+        #home {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-grid {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 52px;
+            margin-bottom: 15px;
+            color: #f8fafc;
+        }
+
+        .hero-text h1 span {
+            color: #2dd4bf;
+        }
+
+        .hero-text h3 {
+            font-size: 24px;
+            color: #94a3b8;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            color: #cbd5e1;
+            max-width: 650px;
+            margin-bottom: 30px;
+            font-size: 18px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #2dd4bf;
+            color: #0f172a;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            margin-right: 10px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #14b8a6;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #2dd4bf;
+            border: 1px solid #2dd4bf;
+        }
+
+        .btn-outline:hover {
+            background: #2dd4bf;
+            color: #0f172a;
+        }
+
+        /* Profile Photo */
+        .photo {
+            width: 300px;
+            height: 300px;
+            margin: auto;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid #2dd4bf;
+            background: #1e293b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* About */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-photo {
+            width: 300px;
+            height: 360px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 4px solid #2dd4bf;
+            background: #1e293b;
+        }
+
+        .about-profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .about-text p {
+            margin-bottom: 18px;
+            color: #cbd5e1;
+            font-size: 17px;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background: #1e293b;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #334155;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: #2dd4bf;
+        }
+
+        .project-card h3 {
+            color: #2dd4bf;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .project-card p {
+            color: #cbd5e1;
+            margin-bottom: 15px;
+        }
+
+        .tech {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .tech strong {
+            color: #f8fafc;
+        }
+
+        /* Skills */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .skill {
+            background: #1e293b;
+            border: 1px solid #334155;
+            padding: 12px 20px;
+            border-radius: 25px;
+            color: #e2e8f0;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            border-color: #2dd4bf;
+            color: #2dd4bf;
+        }
+
+        /* Resume */
+        .resume-box {
+            text-align: center;
+            background: #1e293b;
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid #334155;
+        }
+
+        .resume-box p {
+            margin-bottom: 25px;
+            color: #cbd5e1;
+        }
+
+        /* Contact */
+        .contact-container {
+            text-align: center;
+        }
+
+        .contact-container p {
+            margin: 15px 0;
+            font-size: 18px;
+        }
+
+        .contact-container a {
+            color: #2dd4bf;
+            text-decoration: none;
+        }
+
+        .contact-container a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #111827;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+        }
+
+        /* Mobile */
+        @media (max-width: 800px) {
+
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 40px;
+            }
+
+            .photo {
+                width: 250px;
+                height: 250px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-photo {
+                margin: auto;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<nav>
-  <div class="nav-inner">
-    <a class="logo" href="#home">Siddharth<span>.</span></a>
-    <ul class="links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#resume">Resume</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
 
-<section class="hero" id="home">
-  <div class="hero-grid">
-    <div>
-      <div class="eyebrow">Student • Programmer</div>
-      <h1>Hi, I'm <span>Siddharth.</span></h1>
-      <p>I'm a student interested in programming and technology. I enjoy solving problems, learning new technologies, and turning ideas into practical projects.</p>
-      <div class="buttons">
-        <a class="btn" href="#projects">View My Projects</a>
-        <a class="btn alt" href="#contact">Let's Connect</a>
-      </div>
-    </div>
-    <div class="photo">Add your portfolio<br>photo here<br><small>(profile.jpg)</small></div>
-  </div>
-  <!-- Hero profile photo -->
-<div class="photo">
-  <img src="profile.jpg" alt="Siddharth Salvi" class="profile-img">
-</div>
-</section>
+            <div class="logo">
+                Siddharth Salvi
+            </div>
 
-<section id="about">
-  <div class="about-grid">
-    <div class="about-photo">Your portfolio picture<br><br>Replace this box with<br><strong>profile.jpg</strong></div>
-    <div>
-      <div class="eyebrow">About Me</div>
-      <h2 class="section-title">Learning, building &amp; growing.</h2>
-      <p class="section-lead">I'm a student interested in programming and technology. I'm currently building my skills by learning, experimenting, and working on projects. I enjoy solving problems and turning ideas into practical projects.</p>
-    </div>
-  </div>
-  <div class="about-photo">
-  <img src="profile.jpg" alt="Siddharth Salvi" class="about-profile-img">
-</div>
-</section>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
 
-<section id="projects">
-  <div class="eyebrow">My Work</div>
-  <h2 class="section-title">Projects</h2>
-  <p class="section-lead">A few projects I've worked on while developing my programming and web-development skills.</p>
-  <div class="cards">
-    <article class="card">
-      <h3>Fitness Website</h3>
-      <p>Helps users set and track fitness goals, monitor progress, and receive personalized diet plans based on their fitness requirements.</p>
-      <div class="tags"><span class="tag">C#</span><span class="tag">HTML</span><span class="tag">CSS</span></div>
-    </article>
-    <article class="card">
-      <h3>Scrap Seva</h3>
-      <p>A web-based scrap management platform where users can select scrap types, compare collector rates, and book a preferred collector online.</p>
-      <div class="tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">MongoDB</span></div>
-    </article>
-    <article class="card">
-      <h3>Campus Event Pro</h3>
-      <p>A campus event platform where students browse and register for events, receive automatically generated PDF passes, and organizers manage registrations.</p>
-      <div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">MongoDB</span></div>
-    </article>
-  </div>
-</section>
+        </div>
+    </nav>
 
-<section id="skills">
-  <div class="eyebrow">What I Use</div>
-  <h2 class="section-title">Skills</h2>
-  <p class="section-lead">Technologies and abilities I'm developing.</p>
-  <div class="skills">
-    <span class="skill">React</span><span class="skill">Python</span><span class="skill">MySQL</span>
-    <span class="skill">Power BI</span><span class="skill">Tableau</span><span class="skill">Excel</span>
-    <span class="skill">Problem Solving</span><span class="skill">Project Development</span>
-  </div>
-</section>
 
-<section id="resume">
-  <div class="resume">
-    <div class="eyebrow">Resume</div>
-    <h2 class="section-title">Want to know more?</h2>
-    <p class="section-lead">View my education, skills, and experience in my resume.</p>
-    <a class="btn" href="Resume.pdf" target="_blank">View Resume</a>
-  </div>
-</section>
+    <!-- Home Section -->
+    <section id="home">
 
-<section id="contact">
-  <div class="eyebrow">Get In Touch</div>
-  <h2 class="section-title">Let's connect.</h2>
-  <p class="section-lead">I'd be happy to connect and discuss programming, projects, and technology.</p>
-  <div class="contact-box">
-    <div>Email: <a href="mailto:salvisiddharth49@gmail.com">salvisiddharth49@gmail.com</a></div>
-    <div>GitHub: <a href="https://github.com/siddharthsalvi49" target="_blank">github.com/siddharthsalvi49</a></div>
-    <div>LinkedIn: <a href="https://www.linkedin.com/in/siddharth-salvi-1888132a7" target="_blank">linkedin.com/in/siddharth-salvi-1888132a7</a></div>
-  </div>
-</section>
+        <div class="hero-grid">
 
-<footer>© 2026 Siddharth Salvi. Built with HTML &amp; CSS.</footer>
+            <div class="hero-text">
+
+                <h1>
+                    Hi, I'm <span>Siddharth Salvi</span>
+                </h1>
+
+                <h3>
+                    Student | Programmer | Technology Enthusiast
+                </h3>
+
+                <p>
+                    I'm a student interested in programming and technology.
+                    I enjoy learning new technologies, solving problems,
+                    and turning ideas into practical projects.
+                </p>
+
+                <a href="#projects" class="btn">
+                    View My Projects
+                </a>
+
+                <a href="#contact" class="btn btn-outline">
+                    Contact Me
+                </a>
+
+            </div>
+
+
+            <!-- Home Profile Photo -->
+            <div class="photo">
+
+                <img
+                    src="profile.jpg"
+                    alt="Siddharth Salvi"
+                    class="profile-img"
+                >
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- About Section -->
+    <section id="about">
+
+        <h2>About Me</h2>
+
+        <div class="about-grid">
+
+            <!-- About Profile Photo -->
+            <div class="about-photo">
+
+                <img
+                    src="profile.jpg"
+                    alt="Siddharth Salvi"
+                    class="about-profile-img"
+                >
+
+            </div>
+
+
+            <div class="about-text">
+
+                <p>
+                    Hi! I'm a student interested in programming and technology.
+                    I'm currently building my skills by learning, experimenting,
+                    and working on projects.
+                </p>
+
+                <p>
+                    I enjoy solving problems and turning ideas into practical
+                    projects. I am continuously learning new technologies and
+                    improving my development skills.
+                </p>
+
+                <p>
+                    My goal is to keep learning, build useful applications,
+                    and grow as a technology professional.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Projects Section -->
+    <section id="projects">
+
+        <h2>My Projects</h2>
+
+        <div class="projects-grid">
+
+            <!-- Project 1 -->
+            <div class="project-card">
+
+                <h3>Fitness Website</h3>
+
+                <p>
+                    A fitness platform that helps users set and track
+                    fitness goals, monitor their progress, and receive
+                    personalized diet plans.
+                </p>
+
+                <div class="tech">
+                    <strong>Technologies:</strong>
+                    C#, HTML, CSS
+                </div>
+
+            </div>
+
+
+            <!-- Project 2 -->
+            <div class="project-card">
+
+                <h3>Scrap Seva</h3>
+
+                <p>
+                    A web-based scrap management platform where users
+                    can select scrap types, compare collector rates,
+                    and book their preferred scrap collector online
+                    based on cost and convenience.
+                </p>
+
+                <div class="tech">
+                    <strong>Technologies:</strong>
+                    React, Node.js, MongoDB
+                </div>
+
+            </div>
+
+
+            <!-- Project 3 -->
+            <div class="project-card">
+
+                <h3>Campus Event Pro</h3>
+
+                <p>
+                    A web-based campus event management platform where
+                    students can browse and register for college events.
+                    The system generates automatic PDF event passes
+                    while organizers can manage events and registrations.
+                </p>
+
+                <div class="tech">
+                    <strong>Technologies:</strong>
+                    React, TypeScript, Node.js, MongoDB
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Skills Section -->
+    <section id="skills">
+
+        <h2>Skills</h2>
+
+        <div class="skills-container">
+
+            <div class="skill">React</div>
+
+            <div class="skill">Python</div>
+
+            <div class="skill">MySQL</div>
+
+            <div class="skill">Power BI</div>
+
+            <div class="skill">Tableau</div>
+
+            <div class="skill">Excel</div>
+
+            <div class="skill">Problem Solving</div>
+
+            <div class="skill">Project Development</div>
+
+            <div class="skill">Learning New Technologies</div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Resume Section -->
+    <section id="resume">
+
+        <h2>Resume</h2>
+
+        <div class="resume-box">
+
+            <p>
+                You can view or download my resume using the button below.
+            </p>
+
+            <a
+                href="Resume.pdf"
+                target="_blank"
+                class="btn"
+            >
+                View My Resume
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact">
+
+        <h2>Contact Me</h2>
+
+        <div class="contact-container">
+
+            <p>
+                📧 Email:
+                <a href="mailto:salvisiddharth49@gmail.com">
+                    salvisiddharth49@gmail.com
+                </a>
+            </p>
+
+            <p>
+                💻 GitHub:
+                <a
+                    href="https://github.com/siddharthsalvi49"
+                    target="_blank"
+                >
+                    github.com/siddharthsalvi49
+                </a>
+            </p>
+
+            <p>
+                🔗 LinkedIn:
+                <a
+                    href="https://www.linkedin.com/in/siddharth-salvi-1888132a7/"
+                    target="_blank"
+                >
+                    LinkedIn Profile
+                </a>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 Siddharth Salvi. All rights reserved.
+        </p>
+
+    </footer>
+
 </body>
 </html>
