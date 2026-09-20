@@ -79,6 +79,22 @@
       .links { gap: 10px; }
       .nav-inner { align-items: flex-start; gap: 14px; flex-direction: column; }
     }
+    .profile-img,
+.about-profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.about-profile-img {
+  border-radius: 20px;
+}
+
+.about-photo {
+  overflow: hidden;
+  padding: 0;
+}
   </style>
 </head>
 <body>
@@ -109,6 +125,10 @@
     </div>
     <div class="photo">Add your portfolio<br>photo here<br><small>(profile.jpg)</small></div>
   </div>
+  <!-- Hero profile photo -->
+<div class="photo">
+  <img src="profile.jpg" alt="Siddharth Salvi" class="profile-img">
+</div>
 </section>
 
 <section id="about">
@@ -120,6 +140,9 @@
       <p class="section-lead">I'm a student interested in programming and technology. I'm currently building my skills by learning, experimenting, and working on projects. I enjoy solving problems and turning ideas into practical projects.</p>
     </div>
   </div>
+  <div class="about-photo">
+  <img src="profile.jpg" alt="Siddharth Salvi" class="about-profile-img">
+</div>
 </section>
 
 <section id="projects">
